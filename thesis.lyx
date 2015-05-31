@@ -2395,6 +2395,115 @@ d_{p}(\boldsymbol{u}_{h})=\sum_{m}\frac{\partial p}{\partial u_{m}}\frac{(\nabla
 为可调参数。
 \end_layout
 
+\begin_layout Standard
+人工粘性在半离散方程中加入
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{\kappa}\text{\ensuremath{\partial}}_{t}\boldsymbol{U}\cdot\boldsymbol{\varphi}\text{d}V-\int_{\kappa}(\mathcal{F}^{c}+\mathcal{F}^{v}+\mathcal{F}^{s}):\nabla\boldsymbol{\varphi}\text{d}V+\int_{\partial\kappa}(\hat{\boldsymbol{F}^{c}}+\hat{\boldsymbol{F}^{v}})\cdot\boldsymbol{\varphi}\text{d}S-\int_{\partial\kappa}\mathcal{F}^{v}(\hat{\boldsymbol{U}},(\hat{\boldsymbol{U}}-\boldsymbol{U})\otimes\boldsymbol{n}):\nabla\boldsymbol{\varphi}\text{d}S=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+人工粘性项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{F}^{s}:=\nu_{s}\nabla\boldsymbol{U}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+人工粘性系数
+\begin_inset Formula $\nu_{s}$
+\end_inset
+
+的量纲为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nu_{s}\sim VL
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+或
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nu_{s}\sim\frac{L^{2}}{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以
+\begin_inset Formula $VL$
+\end_inset
+
+作为量纲，定义
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nu_{s}=C_{\epsilon}I_{\Omega}(|\boldsymbol{v}|+c)h
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+侦测因子和自适应侦测因子相似
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{\Omega}=\frac{|\int_{\partial\Omega}[Q]|}{|\partial\Omega|\{Q\}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Q$
+\end_inset
+
+可以去密度，压强，熵等。
+\begin_inset Formula $C_{\epsilon}$
+\end_inset
+
+为调节参数。
+\end_layout
+
 \begin_layout Chapter
 时间推进
 \end_layout
@@ -2935,6 +3044,63 @@ u_{q}=u_{qj}\phi_{j}
 
 \begin_layout Section
 自适应判据
+\end_layout
+
+\begin_layout Standard
+单元
+\begin_inset Formula $\Omega$
+\end_inset
+
+的自适应因子，定义为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{\Omega}=\frac{|\int_{\partial\Omega}[Q]|}{|\partial\Omega|\{Q\}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+当
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{\Omega}>\eta_{\text{refine}}\max_{\Omega}\{I_{\Omega}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+加密当前单元；
+\end_layout
+
+\begin_layout Standard
+当
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{\Omega}<\eta_{\text{coarsen}}\max_{\Omega}\{I_{\Omega}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+稀疏当前单元。
 \end_layout
 
 \begin_layout Itemize
